@@ -5,21 +5,21 @@ import { useGetMenu } from "../hooks/useQueries";
 
 // EDIT: Map dish names to their food images. Add or update entries as your menu changes.
 const MENU_IMAGES: Record<string, string> = {
-  "Samosa Chaat": "/assets/generated/menu-bruschetta.dim_400x300.jpg",
-  "Dal Shorba": "/assets/generated/menu-soup.dim_400x300.jpg",
-  "Paneer Tikka": "/assets/generated/menu-calamari.dim_400x300.jpg",
+  "Samosa Chaat": "/assets/generated/menu-samosa-chaat.dim_400x300.jpg",
+  "Dal Shorba": "/assets/generated/menu-dal-shorba.dim_400x300.jpg",
+  "Paneer Tikka": "/assets/generated/menu-paneer-tikka.dim_400x300.jpg",
   "Garden Salad": "/assets/generated/menu-salad.dim_400x300.jpg",
-  "Butter Chicken": "/assets/generated/menu-salmon.dim_400x300.jpg",
-  "Lamb Rogan Josh": "/assets/generated/menu-pasta-carbonara.dim_400x300.jpg",
+  "Butter Chicken": "/assets/generated/menu-butter-chicken.dim_400x300.jpg",
+  "Lamb Rogan Josh": "/assets/generated/menu-lamb-rogan-josh.dim_400x300.jpg",
   "Chicken Tikka Masala":
     "/assets/generated/menu-chicken-tikka.dim_400x300.jpg",
   "Beef Wellington": "/assets/generated/menu-beef-wellington.dim_400x300.jpg",
-  "Gulab Jamun": "/assets/generated/menu-lava-cake.dim_400x300.jpg",
-  "Mango Kulfi": "/assets/generated/menu-creme-brulee.dim_400x300.jpg",
+  "Gulab Jamun": "/assets/generated/menu-gulab-jamun.dim_400x300.jpg",
+  "Mango Kulfi": "/assets/generated/menu-mango-kulfi.dim_400x300.jpg",
   Tiramisu: "/assets/generated/menu-tiramisu.dim_400x300.jpg",
   "Artisan Sorbet": "/assets/generated/menu-sorbet.dim_400x300.jpg",
-  "Mango Lassi": "/assets/generated/menu-juice.dim_400x300.jpg",
-  "Masala Chai": "/assets/generated/menu-craft-beer.dim_400x300.jpg",
+  "Mango Lassi": "/assets/generated/menu-mango-lassi.dim_400x300.jpg",
+  "Masala Chai": "/assets/generated/menu-masala-chai.dim_400x300.jpg",
   "Cocktail of the Day": "/assets/generated/menu-cocktail.dim_400x300.jpg",
   "Fresh Juice": "/assets/generated/menu-juice.dim_400x300.jpg",
 };

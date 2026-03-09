@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   FONT FACE DECLARATIONS
+   These fonts are self-hosted under /assets/fonts/
+   ============================================================ */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --radius: 0.5rem;
+
+    /* ── Restaurant Dark Theme Tokens ── */
+    /* Background: #121212 */
+    --background:        0.1 0 0;
+    /* Foreground / Text: #FFFFFF */
+    --foreground:        1 0 0;
+    /* Card bg: slightly lighter dark */
+    --card:              0.15 0 0;
+    --card-foreground:   1 0 0;
+    /* Popover */
+    --popover:           0.17 0 0;
+    --popover-foreground: 1 0 0;
+    /* Primary accent: #E63946 (red) */
+    --primary:           0.55 0.22 25;
+    --primary-foreground: 1 0 0;
+    /* Secondary accent: #F1C40F (gold) */
+    --secondary:         0.88 0.18 90;
+    --secondary-foreground: 0.1 0 0;
+    /* Muted */
+    --muted:             0.2 0 0;
+    --muted-foreground:  0.65 0 0;
+    /* Accent (gold alias) */
+    --accent:            0.88 0.18 90;
+    --accent-foreground: 0.1 0 0;
+    /* Destructive */
+    --destructive:       0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+    /* Border / Input */
+    --border:            0.22 0 0;
+    --input:             0.22 0 0;
+    --ring:              0.55 0.22 25;
+    /* Chart tokens */
+    --chart-1: 0.55 0.22 25;
+    --chart-2: 0.88 0.18 90;
+    --chart-3: 0.65 0.15 160;
+    --chart-4: 0.7 0.18 220;
+    --chart-5: 0.75 0.2 300;
+    /* Sidebar */
+    --sidebar:                  0.12 0 0;
+    --sidebar-foreground:       1 0 0;
+    --sidebar-primary:          0.55 0.22 25;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent:           0.88 0.18 90;
+    --sidebar-accent-foreground: 0.1 0 0;
+    --sidebar-border:           0.22 0 0;
+    --sidebar-ring:             0.55 0.22 25;
+  }
+
+  /* No separate .dark class needed — this is always dark */
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-color: oklch(0.1 0 0);
+  }
+}
+
+/* ============================================================
+   SECTION ANIMATIONS
+   Fade-in on scroll using IntersectionObserver
+   ============================================================ */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   SECTION HEADING PATTERN
+   Shared across all sections
+   ============================================================ */
+.section-label {
+  font-family: "General Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(0.88 0.18 90);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-heading {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: oklch(1 0 0);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-divider {
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: oklch(0.55 0.22 25);
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+
+/* ============================================================
+   MENU CARD HOVER
+   ============================================================ */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(230, 57, 70, 0.25);
+}
+
+/* ============================================================
+   BUTTON HOVER EFFECTS
+   ============================================================ */
+.btn-primary {
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+.btn-outline-gold {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-outline-gold:hover {
+  transform: translateY(-2px);
+  background-color: oklch(0.88 0.18 90);
+  color: oklch(0.1 0 0);
+}
+
+/* ============================================================
+   GALLERY CARD HOVER
+   ============================================================ */
+.gallery-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.gallery-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-card img {
+  transition: transform 0.35s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.08);
+}
+
+/* ============================================================
+   CHEF CARD HOVER
+   ============================================================ */
+.chef-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chef-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.3 0 0);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.22 25);
+}
+
+/* ============================================================
+   HAMBURGER ANIMATION
+   ============================================================ */
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: oklch(1 0 0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger-open .line-1 {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-open .line-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger-open .line-3 {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============================================================
+   MAP PLACEHOLDER
+   ============================================================ */
+.map-placeholder {
+  background-color: oklch(0.15 0 0);
+  background-image:
+    linear-gradient(oklch(0.22 0 0) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.22 0 0) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ============================================================
+   HERO GRADIENT OVERLAY
+   ============================================================ */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(18, 18, 18, 0.92) 100%
+  );
+}
+
+/* ============================================================
+   TAB STYLING OVERRIDES
+   ============================================================ */
+[data-state="active"][role="tab"] {
+  background-color: oklch(0.55 0.22 25) !important;
+  color: oklch(1 0 0) !important;
+}
+
+/* ============================================================
+   INPUT DARK OVERRIDES
+   ============================================================ */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
